@@ -1,4 +1,7 @@
-from flask import Flask
+from tempfile import mkstemp
+
+from flask import Flask, request
+
 from transcoder import Transcoder
 
 app = Flask(__name__)
@@ -15,22 +18,26 @@ def transcode(input_file):
     # # p.start()
     # # p.join()
     # returnera omkodad fil
+    pass
+
 
 @app.route('/api/transcode', methods=['GET', 'POST'])
 def upload():
     if request.method == 'POST':
-        return ''
-        # skapa temporär fil
-        # ladda upp
-        # anropa transcode
-        # returnera resultatet
+        _, fname = mkstemp()
+        file = request.files['file']
+        if file:
+            file.save(fname)
+            # anropa transcode
+            # returnera resultatet
+            f = open(fname, 'rb')
+            return f.read()
     else:
-        return 'Invalid usage'
+        return 'Invalid usage', 400
 
 @app.route('/')
 def hello():
     return "Hello World"
 
 if __name__ == '__main__':
-    print(Transcoder)
     app.run(debug=True)
