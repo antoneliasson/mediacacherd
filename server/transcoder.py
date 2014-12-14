@@ -99,11 +99,3 @@ class Transcoder:
     def on_error(self, bus, msg):
         print('on_error():', msg.parse_error())
         self.kill()
-
-if __name__ == '__main__':
-    options = {
-        'input' : '01 - Façade of Reality (The Embrace that Smothers - Part V).flac',
-        'output' : 'out.ogg'
-    }
-    example = Transcoder(options)
-    example.run()
