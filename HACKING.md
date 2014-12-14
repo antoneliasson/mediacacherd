@@ -34,3 +34,12 @@ processing itself, but as I want the number of concurrent jobs to be variable
 depending on how much overloading is allowed, I opted to make it threaded
 instead and letting the web server spawn or fork a new process when a job is
 submitted.
+
+# Testing
+
+To upload a file with curl and save the returned transcoded file:
+
+    $ curl -F file=@'source.flac' http://localhost:5000/api/transcode > dest.ogg
+
+In a real client, the HTTP headers should be checked to make sure that the
+transcode was actually successful.
