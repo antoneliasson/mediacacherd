@@ -16,7 +16,7 @@ somehow connected to power and Ethernet. Let's put all of them to work!
 
 ![Compute with all the cores!](docs/allthecores.png)
 
-Illustration derived from [drawing by Allie Brosh](hyperboleandahalf.blogspot.com/2010/06/this-is-why-ill-never-be-adult.html).
+Illustration derived from [drawing by Allie Brosh](http://hyperboleandahalf.blogspot.com/2010/06/this-is-why-ill-never-be-adult.html).
 
 ## Dependencies
 
