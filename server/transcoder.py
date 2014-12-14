@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # Copyright 2014 Anton Eliasson
 # Copyright 2012 Jason Gerard DeRose
 # https://bazaar.launchpad.net/~jderose/+junk/gst-examples/view/head:/transcoder-1.0
