@@ -1,5 +1,23 @@
 # Background and design of mediacacherd
 
+## Server
+
+There are basically two good open source media transcoding softwares out there
+that I'm aware of: GStreamer and ffmpeg/avconv. GStreamer is widely used, seems
+to be well-maintained and has bindings for many languages. It seems that nobody
+is really using ffmpeg in their multimedia processing code. Most examples I've
+seen just construct command lines and execute them in a shell. I believe that
+it's really hard to make a good program based on subprocessing external programs
+and parsing their output, so I'd like to avoid that. Furthermore, I have some
+previous experience in creating simple GStreamer pipelines, so GStreamer is what
+I chose for the server.
+
+I really want a reason to do a Scala project soon. Unfortunately there seems to
+be no good Java/Scala bindings for GStreamer 1.0. There is an unmaintained
+project that has developed Java bindings for GStreamer 0.10 (TODO: citation),
+but I'm not looking to start a new project based on legacy code. So, for the
+server I settled with Python, which has good bindings for GStreamer 1.0.
+
 The code used for the transcoder is based on a sample from a [Ubuntu Wiki page][ubuntu-wiki-gstreamer] about porting a project to GStreamer 1.0.
 
 [ubuntu-wiki-gstreamer]: https://wiki.ubuntu.com/Novacut/GStreamer1.0 "Novacut/GStreamer1.0 -- Ubuntu Wiki"
@@ -34,6 +52,32 @@ processing itself, but as I want the number of concurrent jobs to be variable
 depending on how much overloading is allowed, I opted to make it threaded
 instead and letting the web server spawn or fork a new process when a job is
 submitted.
+
+## Client
+
+The client doesn't care about the audio stream, it just needs to read the
+metadata (writing metadata is not necessary). This is easier to find Java/Scala
+libraries for. I found two good candidates: [VorbisJava][] and [jaudiotagger][].
+
+[VorbisJava]: https://github.com/Gagravarr/VorbisJava
+[jaudiotagger]: http://www.jthink.net/jaudiotagger/index.jsp
+
+VorbisJava seems more capable, but also more complex. There are no official
+up-to-date binaries, so it would have to be bundled with this project. It does
+not seem to have any code for detecting the media container file type. It can
+apparently be integrated in Apache Tika, which seems to be able to detect and
+parse anything containing text in some form. But this is another thick
+abstraction layer I don't feel like deploying and learning.
+
+The jaudiotagger project was created in 2005 and is still maintained so it
+should be pretty stable by now. If the commercial is correct it can decode all
+interesting audio containers. It has functionality to abstract away the
+different names of field names with the same function in different tagging
+formats. Updated binary releases are available in VCS. A not that out-of-date
+Maven repository is also available.
+
+Both were fairly easy to get running. Because of its advantages listed above,
+I'll use jaudiotagger for now.
 
 # Testing
 
