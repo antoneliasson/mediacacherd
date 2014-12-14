@@ -14,12 +14,17 @@ I chose for the server.
 
 I really want a reason to do a Scala project soon. Unfortunately there seems to
 be no good Java/Scala bindings for GStreamer 1.0. There is an unmaintained
-project that has developed Java bindings for GStreamer 0.10 (TODO: citation),
-but I'm not looking to start a new project based on legacy code. So, for the
-server I settled with Python, which has good bindings for GStreamer 1.0.
+project that has developed Java bindings for GStreamer 0.10[1][gstreamer-java],
+but I'm not looking to start a new project based on legacy code.
+[As his GSoC project for 2014, a guy][gsoc-gstreamer-java] started to rewrite
+the gstreamer-java bindings for GStreamer 1.0, but I could never get his code to
+compile. So, for the server I settled with Python, which has good bindings for
+GStreamer 1.0.
 
 The code used for the transcoder is based on a sample from a [Ubuntu Wiki page][ubuntu-wiki-gstreamer] about porting a project to GStreamer 1.0.
 
+[gsoc-gstreamer-java]: https://www.google-melange.com/gsoc/project/details/google/gsoc2014/octachoron/5738600293466112
+[gstreamer-java]: https://code.google.com/p/gstreamer-java/
 [ubuntu-wiki-gstreamer]: https://wiki.ubuntu.com/Novacut/GStreamer1.0 "Novacut/GStreamer1.0 -- Ubuntu Wiki"
 
 Because the number of concurrent jobs will be fairly low (around the number of
