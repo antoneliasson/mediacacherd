@@ -1,4 +1,5 @@
 from multiprocessing import Process
+import os
 from tempfile import mkstemp
 
 from flask import Flask, request
@@ -30,7 +31,11 @@ def upload():
         if file:
             file.save(in_fname)
             out_fname = transcode(in_fname)
+            os.remove(in_fname)
+
             f = open(out_fname, 'rb')
+            # Unlinking an opened file only works in Unix
+            os.remove(out_fname)
             return f.read()
     else:
         return 'Invalid usage', 400
