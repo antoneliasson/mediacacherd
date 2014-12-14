@@ -14,7 +14,7 @@ I chose for the server.
 
 I really want a reason to do a Scala project soon. Unfortunately there seems to
 be no good Java/Scala bindings for GStreamer 1.0. There is an unmaintained
-project that has developed Java bindings for GStreamer 0.10[1][gstreamer-java],
+project that has developed Java bindings for GStreamer 0.10[[1]][gstreamer-java],
 but I'm not looking to start a new project based on legacy code.
 [As his GSoC project for 2014, a guy][gsoc-gstreamer-java] started to rewrite
 the gstreamer-java bindings for GStreamer 1.0, but I could never get his code to
