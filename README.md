@@ -14,6 +14,8 @@ to spread it out over all available CPU cores, even if they are located in
 different machines. For example, in my household there are 14 CPU cores that are
 somehow connected to power and Ethernet. Let's put all of them to work!
 
+![Compute with all the cores!](docs/allthecores.png)
+
 ## Dependencies
 
 You need the Python 3 bindings for GObject introspection libraries. On Debian/Ubuntu this is the package `python3-gi`. You also need GStreamer 1.0 and its GObject introspection data. I'm not sure which packages are strictly necessary, but it should be a subset of the following so I recommend just installing all of them:
