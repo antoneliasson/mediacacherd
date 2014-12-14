@@ -16,6 +16,8 @@ somehow connected to power and Ethernet. Let's put all of them to work!
 
 ![Compute with all the cores!](docs/allthecores.png)
 
+Illustration derived from [drawing by Allie Brosh](hyperboleandahalf.blogspot.com/2010/06/this-is-why-ill-never-be-adult.html).
+
 ## Dependencies
 
 You need the Python 3 bindings for GObject introspection libraries. On Debian/Ubuntu this is the package `python3-gi`. You also need GStreamer 1.0 and its GObject introspection data. I'm not sure which packages are strictly necessary, but it should be a subset of the following so I recommend just installing all of them:
