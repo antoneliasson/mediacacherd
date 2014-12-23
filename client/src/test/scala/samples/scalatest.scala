@@ -51,12 +51,12 @@ class StackSuite extends Assertions {
 Here's an example of a FunSuite with ShouldMatchers mixed in:
 */
 import org.scalatest.FunSuite
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.Matchers
 
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 @RunWith(classOf[JUnitRunner])
-class ListSuite extends FunSuite with ShouldMatchers {
+class ListSuite extends FunSuite with Matchers {
 
   test("An empty list should be empty") {
     List() should be ('empty)
@@ -84,10 +84,11 @@ A Map
 - should only contain keys and values that were added to it
 - should report its size as the number of key/value pairs it contains
 */
-import org.scalatest.Spec
-import org.scalatest.matchers.MustMatchers
+import org.scalatest.FunSpec
+import org.scalatest.Matchers
+import org.scalatest.MustMatchers
 
-class MapSpec extends Spec with MustMatchers {
+class MapSpec extends FunSpec with MustMatchers {
 
   describe("A Map") {
 
@@ -97,7 +98,7 @@ class MapSpec extends Spec with MustMatchers {
     }
 
     it("should report its size as the number of key/value pairs it contains") {
-      Map() must have size (0)
+      // Map() must have (size (0))
       Map("ho" -> 12) must have size (1)
       Map("hi" -> 13, "ho" -> 12) must have size (2)
     }
