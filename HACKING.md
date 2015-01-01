@@ -84,6 +84,32 @@ Maven repository is also available.
 Both were fairly easy to get running. Because of its advantages listed above,
 I'll use jaudiotagger for now.
 
+### GUI
+
+The Scala bindings for Swing reportedly work well. However, as
+[JavaFX is intended to replace Swing][javafx-replace-swing] in the long run, I'd
+prefer to base my new project on that instead. [ScalaFX][] is a Scala wrapper
+for JavaFX that is also [reportedly nice][stackoverflow-scala-gui]. JavaFX is
+included in Java SE as of JDK 7u6, but is [broken][javafx-maven-classpath]
+(see also [this][guigarage-javafx-maven] and [this][stackoverflow-maven-javafx]) in Java 7 and is
+[not included][github-scalafx-bug] in Debian's and Ubuntu's OpenJDK packages. As
+nobody likes maintaining legacy software, I doubt this will ever be solved.
+
+[javafx-replace-swing]: http://www.oracle.com/technetwork/java/javafx/overview/faq-1446554.html#6 "JavaFX FAQ: 6. Is JavaFX replacing Swing as the new client UI library for Java SE?"
+[scalafx]: http://www.scalafx.org/
+[stackoverflow-scala-gui]: http://stackoverflow.com/a/24214379/2756984
+[javafx-maven-classpath]: http://zenjava.com/javafx/maven/fix-classpath.html
+[guigarage-javafx-maven]: http://www.guigarage.com/2012/10/building-javafx-applications-with-maven/
+[stackoverflow-maven-javafx]: https://stackoverflow.com/questions/15278215/maven-project-with-javafx-with-jar-file-in-lib
+[github-scalafx-bug]: https://github.com/scalafx/scalafx/issues/141
+
+JavaFX seems to be more [correctly included in][wp-javafx-8] Java 8 (compare
+"bundled with" with "part of"). Perhaps it even works. OpenJDK 8
+[is not yet packaged][ubuntu-trusty-java-8] for Ubuntu 14.04.
+
+[wp-javafx-8]: https://en.wikipedia.org/wiki/JavaFX#JavaFX_8
+[ubuntu-trusty-java-8]: https://bugs.launchpad.net/ubuntu/+source/openjdk-8/+bug/1341628
+
 # Testing
 
 To upload a file with curl and save the returned transcoded file:
