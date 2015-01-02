@@ -110,6 +110,21 @@ JavaFX seems to be more [correctly included in][wp-javafx-8] Java 8 (compare
 [wp-javafx-8]: https://en.wikipedia.org/wiki/JavaFX#JavaFX_8
 [ubuntu-trusty-java-8]: https://bugs.launchpad.net/ubuntu/+source/openjdk-8/+bug/1341628
 
+So I built OpenJDK 8 with OpenJFX from source with the help of guides
+[1][obuild-openjfx] and [2][obuild-package] in cleanroom environment (newly
+installed Ubuntu 14.04 amd64 VM). I did not get any JavaFX libs in the result.
+
+[obuild-openjfx]: https://github.com/hgomez/obuildfactory/wiki/How-to-build-and-package-OpenJDK-8-with-OpenJFX-on-Linux
+[obuild-package]: https://github.com/hgomez/obuildfactory/wiki/How-to-build-and-package-OpenJDK-8-on-Linux
+
+Next alternative: Install Oracle Java 8. I used [Web Upd8's PPA][webupd8-java].
+Everything works now. I would imagine that one could also update Ubuntu to a
+version that ships OpenJDK 8 (with [OpenJFX separately][udeb-openjfx]) in the
+official repositories (>=14.10).
+
+[webupd8-java]: http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html
+[udeb-openjfx]: http://packages.ubuntu.com/utopic/openjfx
+
 # Testing
 
 To upload a file with curl and save the returned transcoded file:
