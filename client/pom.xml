@@ -8,8 +8,8 @@
   <inceptionYear>2014</inceptionYear>
 
   <properties>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
     <encoding>UTF-8</encoding>
     <scala.version>2.11.4</scala.version>
     <scala.compat.version>2.11</scala.compat.version>
@@ -57,6 +57,13 @@
       <artifactId>scalatest_${scala.compat.version}</artifactId>
       <version>2.2.1</version>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.scalafx</groupId>
+      <artifactId>scalafx_2.11</artifactId>
+      <version>8.0.0-R4</version>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>net.jthink</groupId>
