@@ -1,5 +1,7 @@
 package se.antoneliasson.mediacacherd
 
+import java.nio.file.Paths
+
 import org.scalatest.{Matchers, FlatSpec}
 
 class MediaLoaderSpec extends FlatSpec with Matchers {
@@ -9,8 +11,9 @@ class MediaLoaderSpec extends FlatSpec with Matchers {
   }
 
   it can "determine the target path for a media file" in {
-    val ml = new MediaLoader("test1.flac")
-    //ml.getPath() should be ("Artist/Album/01 Title.ogg")
+    // Not sure why the full path to the resource must be entered
+    val ml = new MediaLoader("src/test/resources/sine.flac")
+    ml.getPath should be (Paths.get("Artist", "Album", "01 Sine wave.ogg"))
   }
 
   ignore should "ensure that the source contains the required metadata fields" in {
