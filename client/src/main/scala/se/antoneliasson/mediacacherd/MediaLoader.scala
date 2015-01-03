@@ -11,11 +11,16 @@ class MediaLoader(val source: String) {
     val sourceFile = AudioFileIO.read(new File(source))
     val tag = sourceFile.getTag
 
-    val artist = tag.getFirst(FieldKey.ARTIST)
-    val album = tag.getFirst(FieldKey.ALBUM)
-    val track = tag.getFirst(FieldKey.TRACK)
-    val title = tag.getFirst(FieldKey.TITLE)
+    val fields = Seq(FieldKey.ARTIST, FieldKey.ALBUM, FieldKey.TRACK, FieldKey.TITLE)
+      .map(key => sanitizeField(tag.getFirst(key)))
+    val (artist, album, track, title) = fields match {
+      case Seq(a, b, c, d) => (a, b, c, d)
+    }
 
     Paths.get(artist, album, s"$track $title.ogg")
+  }
+
+  def sanitizeField(str: String): String = {
+    str.replaceAll("\u0000|/|\\\\|:|\\*|\\?|\"|<|>|\\|", "-")
   }
 }
