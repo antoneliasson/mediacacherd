@@ -1,0 +1,26 @@
+For each sample file:
+
+1. Generate a sine wave flac source:
+
+    $ gst-launch-1.0 audiotestsrc num-buffers=44 ! audioconvert ! flacenc ! filesink location=sine.flac
+
+2. Tag it:
+
+    $ metaflac --set-tag=TITLE='honk' --set-tag=ARTIST=bar --set-tag=ALBUM=baz --set-tag=TRACKNUMBER=03 sine.flac
+
+3. Convert it
+
+4. Delete sine.flac and repeat
+
+avconv-* files were created with avconv version 9.16-6:9.16-0ubuntu0.14.04.2.
+
+gst-0.10-faac.mp4 was created using
+
+    $ gst-launch-0.10 filesrc location=sine.flac ! decodebin ! faac ! mp4mux ! filesink location=gst-0.10-faac.mp4
+
+The other gst-0.10-* files were created with soundconverter version 2.0.4-0ubuntu1.
+
+gst-1.0-voaacenc.mp4 was created using
+
+    $ gst-launch-1.0 filesrc location=sine.flac ! decodebin ! audioconvert ! voaacenc ! mp4mux ! filesink location=gst-1.0-voaacenc.mp4
+

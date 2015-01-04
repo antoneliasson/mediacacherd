@@ -1,0 +1,4 @@
+This is the test media library.
+
+* artist1 contains some perfectly ordered files. The preferred structure is <artist>/<album>/<tracknumber> <title>.flac
+* derp contains a variety of file formats (both encoders and containers), all by the same artist from the same album, without any meaningful information in the file name.
