@@ -2,7 +2,7 @@ package se.antoneliasson.mediacacherd
 
 import java.nio.file.Paths
 
-import org.scalatest.{Matchers, FlatSpec}
+import org.scalatest.{FlatSpec, Matchers}
 
 class MediaLoaderSpec extends FlatSpec with Matchers {
   "A MediaLoader" should "hold a source filename" in {
