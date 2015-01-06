@@ -33,11 +33,11 @@ class MediaLoaderSpec extends FlatSpec with Matchers {
     ml.getPath should be(Paths.get("DJ- Escaped - chars-", "Love this album -3", "02 Sine wave with int. chars å, ä and ö.ogg"))
   }
 
-  ignore should "ensure that the source contains the required metadata fields" in {
-
-  }
-
-  ignore should "ensure that the source contains the suggested metadata fields" in {
-
-  }
+//  ignore should "ensure that the source contains the required metadata fields" in {
+//
+//  }
+//
+//  ignore should "ensure that the source contains the suggested metadata fields" in {
+//
+//  }
 }
