@@ -1,0 +1,15 @@
+* TODO Hantera undantag som kan hända när filen öppnas och när taggar läses:
+http://www.jthink.net/jaudiotagger/javadoc/org/jaudiotagger/tag/Tag.html#getFirst%28org.jaudiotagger.tag.FieldKey%29
+
+* TODO Kolla så att taggen finns (KeyNotFoundException) och att den inte är tom
+   (!empty)
+
+* TODO Skapa kataloger: Separera Path i katalogsökväg och filnamn.
+   Files.createDirectories(katalogsökväg)
+
+* TODO Ta fram target-katalog. Sökväg till varje fil fås av target.resolve(filsökväg)
+
+* TODO Läsa och skriva binära filer i Java >=7:
+   http://www.javapractices.com/topic/TopicAction.do?Id=245
+
+* TODO Lägg till trasiga saker i biblioteket (korrupta filer, inga rättigheter)
